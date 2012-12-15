@@ -15,18 +15,12 @@ Ext.define('RaxaEmr.billing.model.billModel', {
         name: 'status',
         type: 'string'
     },
-    /*{
-        name: 'creator',
-        type: 'int'
-    },
+    
     {
-        name: 'date_created',
+        name: 'dateCreated',
         type: 'date'
     },
-    {
-        name: 'retired',
-        type: 'boolean'
-    }*/
+    
         {
         name: 'providerId',
         type: 'int'
@@ -35,6 +29,15 @@ Ext.define('RaxaEmr.billing.model.billModel', {
         name: 'patientId',
         type: 'int'
     },
+    {
+        name: 'balance',
+        type: 'int'
+    },
+    {
+        name: 'totalAmount',
+        type: 'int'
+    },
+    
        {
         name: 'name',
         type: 'string'
@@ -42,6 +45,11 @@ Ext.define('RaxaEmr.billing.model.billModel', {
     {
         name: 'description',
         type: 'string'
+    } ,
+    
+     {
+        name: 'billItems',
+         model: 'RaxaEmr.billing.model.billingItem'
     } 
 
 ]

@@ -8,6 +8,11 @@ alias : 'widget.main',
 
         fullscreen: true,
         id: 'halo',
+         style: { 
+       borderColor: '#ffffff',
+       borderStyle: 'solid',
+       borderWidth: '1px'
+   },
         
         
     initComponent: function() {
@@ -40,6 +45,7 @@ alias : 'widget.main',
                             items: [
                                 {
                                     xtype: 'form',
+                                    
                                     height: 189,
                                     layout: {
                                         align: 'stretch',
@@ -47,10 +53,12 @@ alias : 'widget.main',
                                     },
                                     bodyPadding: 10,
                                     title: 'Find Patient',
+                                   
                                     items: [
                                         {
                                             xtype: 'textfield',
-                                            fieldLabel: 'Patient Id '
+                                            fieldLabel: 'Patient Id ',
+                                            id :'pid'
                                         },
                                         {
                                             xtype: 'textfield',
@@ -64,6 +72,7 @@ alias : 'widget.main',
                                             xtype: 'button',
                                             margin: 20,
                                             text: 'Find',
+                                            ui :'raxa-aqua-small',
                                           action: 'findPatient'
                                            
                                           /* handler: function() {

@@ -2,23 +2,21 @@ Ext.define('RaxaEmr.billing.model.billingItemAdjustment', {
     extend: 'Ext.data.Model',
 
     field: [{
-        name: 'billId',
-        type: 'int'
-    }, {
-        name: 'conceptId',
-        type: 'int'
+       
+        name: 'name',
+        type: 'string'
     },
     
-    { name: 'providerId',
-        type: 'int'
+    { name: 'description',
+        type: 'string'
     },
     
-     { name: 'encounterId',
+     { name: 'quantity',
         type: 'int'
     },
     
     {
-        name: 'orderId',
+        name: 'value',
         type: 'int'
 }]
 });

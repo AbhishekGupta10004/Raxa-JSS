@@ -11,13 +11,13 @@ Ext.application({
     tabletStartupScreen: 'resources/img/icon.png',
     //models: ['Session'],
     // List of Models for dynamic loading
-    requires: [ 'RaxaEmr.billing.view.main','RaxaEmr.billing.view.currentbill','RaxaEmr.billing.view.discount','RaxaEmr.billing.view.previousBills','RaxaEmr.billing.view.currentBill_main','RaxaEmr.billing.view.print_Final','RaxaEmr.billing.view.searchPatient'],
+    requires: [ 'RaxaEmr.billing.view.main','RaxaEmr.billing.view.EditItem','RaxaEmr.billing.view.currentbill','RaxaEmr.billing.view.discount','RaxaEmr.billing.view.previousBills','RaxaEmr.billing.view.currentBill_main','RaxaEmr.billing.view.print_Final','RaxaEmr.billing.view.previousShow','RaxaEmr.billing.view.searchPatient'],
     
     controllers :['RaxaEmr.billing.controller.billings'],
      
-     stores :['RaxaEmr.billing.store.billingstore'],
+     stores :['RaxaEmr.billing.store.billingstore','RaxaEmr.billing.store.itemStore','RaxaEmr.billing.store.previousshow','RaxaEmr.billing.store.billingItemstore'],
      
-     models :['RaxaEmr.billing.model.billModel'],
+     models :['RaxaEmr.billing.model.billModel' ,'RaxaEmr.billing.model.billingItem','RaxaEmr.billing.model.previousModel'],
      
      launch: function () {
            Ext.onReady(function(){

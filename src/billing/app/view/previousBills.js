@@ -1,7 +1,7 @@
 Ext.define('RaxaEmr.billing.view.previousBills', {
     extend: 'Ext.form.Panel',
 alias : 'widget.previousBills',
-    height: 489,
+    height: 589,
     width: 759,
     title: 'RAXA',
 
@@ -13,6 +13,7 @@ alias : 'widget.previousBills',
                 {
                     xtype: 'container',
                     height: 28,
+                    
                     layout: {
                         type: 'table'
                     },
@@ -38,6 +39,7 @@ alias : 'widget.previousBills',
                 {
                     xtype: 'container',
                     height: 193,
+                    
                     layout: {
                         type: 'table'
                     },
@@ -128,8 +130,9 @@ alias : 'widget.previousBills',
                 },
                 {
                     xtype: 'container',
-                    height: 210,
-                    width: 732,
+                    height: 310,
+                    width: 1000,
+                    margin:'0 0 0 275',
                     layout: {
                         type: 'table'
                     },
@@ -137,51 +140,127 @@ alias : 'widget.previousBills',
                         {
                             xtype: 'container',
                             height: 206,
-                            width: 322,
+                            width: 1000,
                             items: [
                                 {
                                     xtype: 'gridpanel',
                                     height: 198,
-                                    width: 305,
+                                    width:1000 ,
                                     title: 'Previous Bills',
                                     id : 'gridPrevious',
                                         store: Ext.data.StoreManager.lookup('RaxaEmr.billing.store.billingstore'),
 
                                     columns: [
+                                        
+                                         
+                                         {
+                                            xtype: 'numbercolumn',
+                                            width: 100,
+                                            dataIndex: 'balance',
+                                            id :'balance',
+                                            text: 'Pending Balance'
+                                        },
+                                         {
+                                            xtype: 'numbercolumn',
+                                            width: 100,
+                                            dataIndex: 'totalAmount',
+                                            id :'totalAmount',
+                                            text: 'Current Bill Amount'
+                                        },
+                                        
                                         {
                                             xtype: 'gridcolumn',
-                                            width: 78,
+                                            width: 150,
                                             dataIndex: 'uuid',
                                             id :'uuid',
                                             text: 'uuid'
                                         },
+                                        
+                                        {
+                                            xtype: 'numbercolumn',
+                                            width: 100,
+                                            dataIndex: 'billId',
+                                            id :'billId',
+                                            text: 'billId'
+                                        },
                                         {
                                             xtype: 'gridcolumn',
-                                            width: 60,
+                                            width: 100,
                                             dataIndex: 'status',
                                             id :'status',
                                             text: 'status'
                                         },
+                                        
                                         {
                                             xtype: 'numbercolumn',
-                                            width: 75,
+                                            width: 100,
                                             dataIndex: 'providerId',
                                             id :'providerId',
                                             text: 'providerId'
                                         },
+                                         
+                                        
+                                
                                         {
-                                            xtype: 'numbercolumn',
-                                            width: 90,
-                                            id : 'patientId',
-                                            dataIndex: 'patientId',
-                                            text: 'patientId'
-                                        }
+                                            xtype: 'datecolumn',
+                                            width: 100,
+                                            id : 'dateCreated',
+                                            dataIndex: 'dateCreated',
+                                            format: 'Y-n-d h:i:s A',
+                                            text: 'dateCreated'
+                                        },
+                                        
+                                        
+                                         {
+            xtype: 'actioncolumn',
+            width: 45,
+            items: [{
+                icon: '../resources/img/edit.png',
+                tooltip: 'Show Bill',
+                handler: function(grid, rowIndex) {
+                    me.fireEvent('showBill', {
+                        rowIndex: rowIndex
+                       
+                    });
+                }
+            }]
+    }
+                                            
                                     ],
+                                    
+                                    
                                     viewConfig: {
 
                                     }
                                 }
-                            ]
+,
+{
+xtype:'container',
+height: 206,
+                            width: 1000,
+items:[
+              
+            {
+                 xtype: 'textfield',
+                    readOnly: true,
+                    id:'previousamount',
+                    fieldLabel: 'Previous Bills Amount Due'
+            },
+
+{
+                            xtype: 'button',
+                            id:'button',
+                            height: 40,
+                            width: 150,
+                            margin :'10 0 0 100',
+                            text: 'Create a new Bill',
+                            ui :'raxa-aqua-small',
+                            action: 'findPatient2'
+                        } 
+          
+            
+]}
+            ]
                         }
                     ]
                 }
